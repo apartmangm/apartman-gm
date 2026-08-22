@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Apartman GM Pale – udoban smještaj za odmor u blizini Jahorine i Sarajeva.">
+<title>Apartman GM | Pale</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#20251f;
+background:#f7f5f0;
+line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+header{
+position:absolute;
+top:0;left:0;right:0;
+z-index:10;
+padding:22px 0;
+color:white
+}
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+.logo{
+font-size:24px;
+font-weight:700;
+letter-spacing:.5px
+}
+.nav a{
+margin-left:25px;
+font-size:14px
+}
+
+.hero{
+min-height:92vh;
+display:flex;
+align-items:center;
+position:relative;
+background:
+linear-gradient(90deg,rgba(15,25,18,.72),rgba(15,25,18,.25)),
+linear-gradient(135deg,#536652,#8d9b88);
+color:white
+}
+.hero-content{max-width:720px}
+.eyebrow{
+text-transform:uppercase;
+letter-spacing:3px;
+font-size:13px;
+margin-bottom:18px;
+opacity:.9
+}
+h1{
+font-size:clamp(44px,7vw,78px);
+line-height:1.02;
+margin-bottom:22px
+}
+.hero p{
+font-size:20px;
+max-width:620px;
+margin-bottom:32px;
+color:#f1f1ed
+}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+display:inline-block;
+padding:14px 24px;
+border-radius:5px;
+font-weight:600;
+transition:.2s
+}
+.btn-primary{
+background:#fff;
+color:#263026
+}
+.btn-dark{
+border:1px solid rgba(255,255,255,.6);
+color:white
+}
+
+section{padding:90px 0}
+.section-title{
+font-size:38px;
+line-height:1.15;
+margin-bottom:16px
+}
+.section-text{
+max-width:720px;
+color:#626860;
+font-size:17px
+}
+
+.intro{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:55px;
+align-items:center
+}
+.feature-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:30px
+}
+.feature{
+background:white;
+padding:22px;
+border-radius:8px;
+box-shadow:0 8px 25px rgba(0,0,0,.05)
+}
+.feature strong{display:block;margin-bottom:5px}
+
+.rooms{
+background:#eeeae2
+}
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin-top:40px
+}
+.card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 8px 30px rgba(0,0,0,.07)
+}
+.card-image{
+height:230px;
+background:linear-gradient(135deg,#778575,#c8cec3);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:14px
+}
+.card-content{padding:25px}
+.card h3{font-size:23px;margin-bottom:8px}
+
+.walk{
+background:#263127;
+color:white
+}
+.walk .section-text{color:#d7ddd4}
+.walk-box{
+margin-top:35px;
+padding:35px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:10px;
+background:rgba(255,255,255,.05)
+}
+
+.location{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center
+}
+.location-box{
+background:#dddcd5;
+height:330px;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px
+}
+
+.cta{
+background:#dfe4dc;
+text-align:center
+}
+.cta p{
+max-width:650px;
+margin:15px auto 28px;
+color:#5f665d
+}
+
+footer{
+background:#1d241e;
+color:#cfd4ce;
+padding:35px 0
+}
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap
+}
+footer strong{color:white}
+
+@media(max-width:800px){
+header{padding:18px 0}
+.nav-links{display:none}
+.hero{min-height:88vh}
+.hero p{font-size:17px}
+section{padding:65px 0}
+.intro,.location{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr}
+.feature-list{grid-template-columns:1fr}
+.section-title{font-size:32px}
+.card-image{height:210px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<div class="logo">Apartman GM</div>
+<div class="nav-links">
+<a href="#apartman">Apartman</a>
+<a href="#sadrzaji">Sadržaji</a>
+<a href="#lokacija">Lokacija</a>
+<a href="#kontakt">Kontakt</a>
+</div>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container hero-content">
+<div class="eyebrow">Pale · Jahorina · Sarajevo</div>
+<h1>Vaš mirni kutak između prirode i grada.</h1>
+<p>
+Udoban i prostran smještaj u Palama, idealan za porodice,
+grupe i goste koji žele spoj svježeg zraka, prirode i blizine Jahorine i Sarajeva.
+</p>
+<div class="buttons">
+<a class="btn btn-primary" href="#kontakt">Provjeri dostupnost</a>
+<a class="btn btn-dark" href="#apartman">Pogledaj apartman</a>
+</div>
+</div>
+</section>
+
+<section id="apartman">
+<div class="container intro">
+<div>
+<div class="eyebrow" style="color:#71806d">Apartman GM</div>
+<h2 class="section-title">Prostor za pravi odmor.</h2>
+<p class="section-text">
+Apartman GM je osmišljen tako da gostima pruži udoban boravak,
+dovoljno privatnosti i praktičnost tokom cijelog odmora.
+</p>
+</div>
+
+<div>
+<div class="feature-list">
+<div class="feature">
+<strong>4 spavaće sobe</strong>
+<span>Udoban smještaj za porodice i grupe.</span>
+</div>
+<div class="feature">
+<strong>4 kupatila</strong>
+<span>Privatno kupatilo uz svaku sobu.</span>
+</div>
+<div class="feature">
+<strong>Prostran prostor</strong>
+<span>Oko 105 m² za ugodan boravak.</span>
+</div>
+<div class="feature">
+<strong>Do 13 gostiju</strong>
+<span>Mogućnost dodatnih ležajeva.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="sadrzaji" class="rooms">
+<div class="container">
+<div class="eyebrow" style="color:#71806d">Smještaj</div>
+<h2 class="section-title">Sve što vam je potrebno.</h2>
+<p class="section-text">
+Praktičan smještaj za kraći vikend, duži odmor ili boravak
+tokom zimske sezone na Jahorini.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-image">Fotografija sobe</div>
+<div class="card-content">
+<h3>Soba 1</h3>
+<p>Dva odvojena kreveta i privatno kupatilo.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image">Fotografija sobe</div>
+<div class="card-content">
+<h3>Soba 2</h3>
+<p>Bračni krevet i privatno kupatilo.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image">Fotografija sobe</div>
+<div class="card-content">
+<h3>Soba 3 & 4</h3>
+<p>Udobne sobe sa dodatnim prostorom za spavanje.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="walk">
+<div class="container">
+<div class="eyebrow">Priroda odmah tu</div>
+<h2 class="section-title">Naša šetačka zona.</h2>
+<p class="section-text">
+Izađite iz apartmana i krenite u laganu šetnju kroz prirodu.
+Većim dijelom ruta prolazi kroz šumu, uz svjež zrak i mir
+koji je teško pronaći u gradu.
+</p>
+
+<div class="walk-box">
+<strong>Šetnja kroz prirodu</strong>
+<p style="margin-top:8px;color:#d7ddd4">
+Idealna za jutarnju šetnju, opuštanje nakon skijanja
+ili mirnu večernju šetnju.
+</p>
+</div>
+</div>
+</section>
+
+<section id="lokacija">
+<div class="container location">
+<div>
+<div class="eyebrow" style="color:#71806d">Lokacija</div>
+<h2 class="section-title">Pale kao idealna baza.</h2>
+<p class="section-text">
+Odavde možete lako planirati izlete prema Jahorini,
+Sarajevu i okolnim prirodnim atrakcijama.
+</p>
+
+<div class="feature-list">
+<div class="feature">
+<strong>Jahorina</strong>
+<span>Odlična baza za skijanje i planinu.</span>
+</div>
+<div class="feature">
+<strong>Sarajevo</strong>
+<span>Grad, kultura, hrana i znamenitosti.</span>
+</div>
+</div>
+</div>
+
+<div class="location-box">
+<div>
+<strong>Mapa Apartmana GM</strong>
+<p style="margin-top:10px">
+Ovdje ćemo postaviti stvarnu Google Maps lokaciju
+i dugme za navigaciju.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="kontakt" class="cta">
+<div class="container">
+<h2 class="section-title">Planirate boravak?</h2>
+<p>
+Pošaljite nam upit za željeni termin i broj gostiju.
+Odgovorićemo vam sa informacijama o dostupnosti i cijeni.
+</p>
+<div class="buttons" style="justify-content:center">
+<a class="btn btn-primary" href="mailto:OVDJE_CEMO_STAVITI_EMAIL">Pošalji upit</a>
+<a class="btn" style="background:#263127;color:white" href="tel:OVDJE_CEMO_STAVITI_TELEFON">Pozovi</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-inner">
+<div><strong>Apartman GM</strong><br>Pale, Bosna i Hercegovina</div>
+<div>Jahorina · Pale · Sarajevo</div>
+</div>
+</footer>
+
+</body>
+</html>
