@@ -1,236 +1,138 @@
-<!DOCTYPE html>
-<html lang="sr">
+<!doctype html>
+<html lang="sr-Latn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Apartman GM Pale – udoban smještaj za Jahorinu, Pale i Sarajevo.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#17351f">
-<title>Apartman GM | Pale</title>
+<meta name="description" content="Apartman GM Pale — udoban smještaj za porodice i grupe, između Jahorine i Sarajeva. Privatni parking, Wi‑Fi i četiri sobe sa privatnim kupatilima.">
+<link rel="canonical" href="https://apartmangm.com/">
+<title>Apartman GM | Pale — Jahorina & Sarajevo</title>
 <style>
-:root{--g:#17351f;--g2:#285437;--gold:#c7a56a;--cream:#f6f3ec;--ink:#182019;--muted:#687269;--line:#e4e0d7}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%;height:100%;object-fit:cover}
+:root{--g:#17351f;--g2:#285437;--gold:#c8a66b;--cream:#f5f2ea;--ink:#172019;--muted:#667168;--line:#e5e0d5}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}img{display:block;width:100%;height:100%;object-fit:cover}
 .container{width:min(1160px,92%);margin:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 21px;border-radius:999px;font-weight:700;transition:.2s;border:0;cursor:pointer}
-.primary{background:var(--g);color:#fff}.gold{background:var(--gold);color:#182019}.btn:hover{transform:translateY(-2px)}
-header{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #eee}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:21px;font-weight:900;color:var(--g)}.logo small{display:block;color:var(--gold);font-size:10px;letter-spacing:2px}
-.links{display:flex;gap:24px;font-size:14px;font-weight:700}.links a:hover{color:var(--gold)}.menu{display:none;border:0;background:none;font-size:28px;color:var(--g);cursor:pointer}
-.hero{height:92vh;min-height:620px;position:relative;padding-top:76px;display:flex;align-items:end;overflow:hidden;background:var(--g)}.hero-bg{position:absolute;inset:0}.hero-bg img{filter:brightness(.52)}
-.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,16,9,.78),rgba(5,16,9,.18) 70%,rgba(5,16,9,.4))}
-.hero-content{position:relative;color:#fff;padding:80px 0 85px;max-width:760px}.eyebrow,.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:800;font-size:12px}.eyebrow{margin-bottom:17px}
-.hero h1{font-size:clamp(43px,7vw,78px);line-height:1.02;letter-spacing:-2px;margin-bottom:22px}.hero p{font-size:18px;max-width:690px;color:#f0f2ed;margin-bottom:28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.note{font-size:13px;color:#dfe5df;margin-top:17px}
-section{padding:88px 0}.cream{background:var(--cream)}.head{max-width:700px;margin-bottom:38px}.head h2{font-size:clamp(31px,4vw,48px);line-height:1.12;margin:8px 0 13px}.lead{color:var(--muted);font-size:18px}
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.feature,.room{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}.feature .i{font-size:26px;margin-bottom:9px}.feature h3{font-size:17px}.feature p,.room p{font-size:14px;color:var(--muted)}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.about-img{height:560px;border-radius:27px;overflow:hidden}.about-copy p{color:var(--muted);margin:13px 0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:23px 0}.check{font-size:14px;font-weight:700}.check:before{content:'✓';color:var(--gold);margin-right:8px}
-.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.room .num{font-size:12px;color:var(--gold);font-weight:900}.room h3{margin:7px 0}
-.gallery{background:#f8f7f3}.grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:240px;gap:12px}.photo{overflow:hidden;border-radius:17px;background:#ddd}.photo img{cursor:pointer;transition:.35s}.photo:hover img{transform:scale(1.04)}.photo:first-child{grid-row:span 2}
-.location{background:var(--g);color:#fff}.location .lead{color:#d9e2da}.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.loc-card{border-radius:22px;padding:30px;min-height:290px;background:var(--g2);display:flex;flex-direction:column;justify-content:space-between}.walk{background:#fff;color:var(--ink);border-radius:22px;padding:30px}.walk p{color:var(--muted);margin:12px 0 22px}
-.cta{background:linear-gradient(135deg,#f7f3ea,#fff)}.cta-box{background:var(--cream);border:1px solid var(--line);border-radius:26px;padding:44px}.cta h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:8px 0}.cta p{max-width:700px}
-.field{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff}.form-label{font-weight:700;font-size:14px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:12px}.contact-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px}
-footer{background:#101812;color:#d6ddd7;padding:42px 0}.footer{display:flex;justify-content:space-between;gap:25px}.footer strong{color:#fff}.footer small{color:#929c95}
-.modal{display:none;position:fixed;z-index:100;inset:0;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal img{width:auto;height:auto;max-width:95%;max-height:90vh;border-radius:10px}.close{position:absolute;right:18px;top:8px;background:none;border:0;color:#fff;font-size:42px;cursor:pointer}
-@media(max-width:850px){.links{display:none}.menu{display:block}.features,.rooms{grid-template-columns:1fr 1fr}.about,.loc-grid{grid-template-columns:1fr}.about-img{height:420px}.grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.photo:first-child{grid-row:span 2}.cta-box{display:block}}
-@media(max-width:560px){section{padding:68px 0}.hero{min-height:650px}.hero-content{padding:70px 0 60px}.hero h1{letter-spacing:-1px}.features,.rooms,.checks,.form-grid,.contact-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr;grid-auto-rows:230px}.photo:first-child{grid-row:span 1}.about-img{height:330px}.footer{flex-direction:column}.actions .btn{width:100%}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border-radius:999px;border:1px solid transparent;font-weight:800;cursor:pointer}
+.primary{background:var(--g);color:#fff}.gold{background:var(--gold);color:var(--ink)}.light{background:#fff;color:var(--g)}
+.eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+header{position:fixed;z-index:50;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid #eee}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:950;color:var(--g);font-size:20px;line-height:1}.logo small{display:block;color:var(--gold);font-size:9px;letter-spacing:2px;margin-top:5px}
+.links{display:flex;gap:24px;font-size:14px;font-weight:750}.links a:hover{color:var(--gold)}
+.menu{display:none;border:0;background:none;color:var(--g);font-size:28px}.mobile{display:none;padding:10px 4%;background:#fff}.mobile a{display:block;padding:12px 0;border-bottom:1px solid #eee;font-weight:750}
+.hero{height:92vh;min-height:680px;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding-top:74px;background:var(--g)}
+.hero-bg,.shade{position:absolute;inset:0}.hero-bg img{filter:brightness(.48)}.shade{background:linear-gradient(90deg,rgba(4,15,8,.84),rgba(4,15,8,.3) 70%,rgba(4,15,8,.4))}
+.hero-content{position:relative;color:#fff;max-width:800px;padding:75px 0 70px}.hero h1{font-size:clamp(44px,7vw,78px);line-height:1.02;letter-spacing:-2.5px;margin:18px 0 22px}.hero p{font-size:clamp(17px,2vw,20px);max-width:720px;color:#eef2ed;margin-bottom:28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.pill{padding:7px 11px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.08);font-size:12px}
+section{padding:88px 0}.cream{background:var(--cream)}.head{max-width:750px;margin-bottom:38px}.head h2{font-size:clamp(32px,4.5vw,50px);line-height:1.1;letter-spacing:-1px;margin:8px 0 14px}.lead{font-size:18px;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.feature,.room{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}.feature h3{font-size:17px}.feature p,.room p{font-size:14px;color:var(--muted);margin-top:5px}.icon{font-size:25px;margin-bottom:8px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.about-img{height:550px;border-radius:28px;overflow:hidden}.about-copy p{color:var(--muted);margin:13px 0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:23px 0}.check{font-size:14px;font-weight:750}.check:before{content:"✓";color:var(--gold);margin-right:8px}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.num{font-size:11px;color:var(--gold);font-weight:900;letter-spacing:2px}.room h3{font-size:20px;margin:8px 0}.room strong{display:block;margin-top:13px;font-size:13px;color:var(--g)}
+.gallery{background:#f8f7f3}.grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:12px}.photo{border-radius:18px;overflow:hidden;cursor:pointer;background:#ddd}.photo:first-child{grid-row:span 2}.photo img{transition:.3s}.photo:hover img{transform:scale(1.04)}
+.location{background:var(--g);color:#fff}.location .lead{color:#dbe4dd}.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.loc-card{background:var(--g2);border-radius:24px;padding:30px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}.loc-card p{color:#dbe4dd;margin-top:10px}.walk{background:#fff;color:var(--ink);border-radius:24px;padding:30px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}.walk p{color:var(--muted);margin:10px 0 20px}
+.booking{background:linear-gradient(135deg,#f8f4ea,#fff)}.box{background:#fff;border:1px solid var(--line);border-radius:28px;padding:40px}.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.booking h2{font-size:clamp(32px,4vw,48px);line-height:1.08;margin:8px 0 14px}.booking p{color:var(--muted);margin-bottom:20px}.form{display:grid;gap:13px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.label{font-size:13px;font-weight:800}.field{width:100%;margin-top:6px;padding:13px;border:1px solid var(--line);border-radius:12px;background:#fff}.field:focus{outline:2px solid rgba(200,166,107,.3)}textarea.field{min-height:110px;resize:vertical}.note{font-size:12px;color:var(--muted)}
+.faq{display:grid;gap:10px}.faq details{border:1px solid var(--line);border-radius:16px;padding:17px 19px}.faq summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);font-size:14px;margin-top:8px}
+footer{background:#101711;color:#d4ddd6;padding:42px 0 90px}.footer{display:flex;justify-content:space-between;gap:25px}.footer strong{color:#fff}.footer small{color:#929c95}.footer a:hover{color:var(--gold)}
+.bottom{display:none}.modal{display:none;position:fixed;z-index:100;inset:0;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal img{max-width:95vw;max-height:88vh;width:auto;height:auto;border-radius:10px}.close{position:absolute;right:15px;top:0;background:none;border:0;color:#fff;font-size:44px}
+@media(max-width:900px){.links{display:none}.menu{display:block}.mobile.open{display:block}.features,.rooms{grid-template-columns:1fr 1fr}.about,.loc-grid,.booking-grid{grid-template-columns:1fr}.about-img{height:430px}.grid{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.box{padding:30px}}
+@media(max-width:560px){section{padding:68px 0}.hero{min-height:690px}.hero-content{padding:65px 0 58px}.hero h1{letter-spacing:-1px}.actions .btn{width:100%}.features,.rooms,.checks,.form-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr;grid-auto-rows:240px}.photo:first-child{grid-row:span 1}.about-img{height:335px}.box{padding:23px}.footer{flex-direction:column}.bottom{position:fixed;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:8px;left:0;right:0;bottom:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.bottom .btn{min-height:44px;font-size:13px}}
 </style>
 </head>
 <body>
 <header>
 <div class="container nav">
 <a class="logo" href="#top">APARTMAN GM<small>PALE · JAHORINA</small></a>
-<nav class="links" id="mainNav">
-<a href="#o-nama">O apartmanu</a><a href="#sobe">Sobe</a><a href="#galerija">Galerija</a><a href="#lokacija">Lokacija</a><a href="#kontakt">Kontakt</a>
-</nav>
-<button class="menu" type="button" onclick="toggleMenu()" aria-label="Otvori meni">☰</button>
+<nav class="links"><a href="#o-apartmanu">O apartmanu</a><a href="#sobe">Sobe</a><a href="#galerija">Galerija</a><a href="#lokacija">Lokacija</a><a href="#upit">Rezervacija</a></nav>
+<button class="menu" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Meni">☰</button>
 </div>
+<div class="mobile"><a href="#o-apartmanu">O apartmanu</a><a href="#sobe">Sobe</a><a href="#galerija">Galerija</a><a href="#lokacija">Lokacija</a><a href="#upit">Rezervacija</a></div>
 </header>
 
 <main id="top">
 <section class="hero">
-<div class="hero-bg"><img src="IMG_20260822_134132.jpg" alt="Apartman GM" onerror="this.src='IMG_20250111_140721.jpg'"></div>
-<div class="shade"></div>
+<div class="hero-bg"><img src="IMG_20260822_134132.jpg" alt="Apartman GM" onerror="this.src='IMG_20250111_140721.jpg'"></div><div class="shade"></div>
 <div class="container hero-content">
-<div class="eyebrow">● Apartman GM · Pale</div>
+<div class="eyebrow">Apartman GM · Pale</div>
 <h1>Odmor između Jahorine i Sarajeva.</h1>
-<p>Udoban i prostran smještaj u Palama – idealan za porodice, prijatelje i grupe koje žele mir, prirodu i odličnu polaznu tačku za istraživanje ovog kraja.</p>
-<div class="actions"><a class="btn gold" href="#kontakt">Pošaljite upit</a><a class="btn" style="background:#fff;color:var(--g)" href="#galerija">Pogledajte apartman</a></div>
-<div class="note">Privatni parking · Wi‑Fi · 4 sobe · Privatna kupatila</div>
+<p>Prostran i praktičan smještaj za porodice, prijatelje i grupe — uz privatna kupatila, parking i mirno okruženje.</p>
+<div class="actions"><a class="btn gold" href="#upit">Pošaljite upit</a><a class="btn light" href="#galerija">Pogledajte galeriju</a></div>
+<div class="pills"><span class="pill">4 sobe</span><span class="pill">4 privatna kupatila</span><span class="pill">Privatni parking</span><span class="pill">Wi‑Fi</span></div>
 </div>
 </section>
 
 <section class="cream"><div class="container features">
-<div class="feature"><div class="i">🛏️</div><h3>4 sobe</h3><p>Komforan smještaj za porodice i grupe.</p></div>
-<div class="feature"><div class="i">🚿</div><h3>Privatna kupatila</h3><p>Svaka soba ima svoje kupatilo.</p></div>
-<div class="feature"><div class="i">🚗</div><h3>Privatni parking</h3><p>Parkiranje neposredno uz objekat.</p></div>
-<div class="feature"><div class="i">📶</div><h3>Wi‑Fi</h3><p>Internet za odmor i svakodnevne potrebe.</p></div>
+<div class="feature"><div class="icon">🛏️</div><h3>Četiri sobe</h3><p>Fleksibilan smještaj za porodice i grupe.</p></div>
+<div class="feature"><div class="icon">🚿</div><h3>Privatna kupatila</h3><p>Svaka soba ima svoje kupatilo.</p></div>
+<div class="feature"><div class="icon">🚗</div><h3>Privatni parking</h3><p>Praktično parkiranje za goste.</p></div>
+<div class="feature"><div class="icon">📶</div><h3>Wi‑Fi</h3><p>Besplatan internet u objektu.</p></div>
 </div></section>
 
-<section id="o-nama"><div class="container about">
+<section id="o-apartmanu"><div class="container about">
 <div class="about-img"><img src="IMG_20250111_140721.jpg" alt="Enterijer Apartmana GM" loading="lazy"></div>
-<div class="about-copy"><div class="kicker">Dobro došli</div><h2>Mjesto gdje možete usporiti.</h2>
-<p>Apartman GM nalazi se u Palama, na praktičnoj poziciji za goste koji žele kombinovati planinu, prirodu i obilazak Sarajeva.</p>
-<p>Prostor je organizovan tako da i veće društvo može boraviti udobno, uz više privatnosti i praktičnosti.</p>
-<div class="checks"><div class="check">4 spavaće sobe</div><div class="check">4 privatna kupatila</div><div class="check">Privatni ulaz</div><div class="check">Parking</div><div class="check">TV u sobama</div><div class="check">Grijanje</div></div>
+<div class="about-copy"><div class="eyebrow">Dobro došli</div><div class="head"><h2>Više prostora. Više privatnosti. Više odmora.</h2></div>
+<p>Apartman GM je organizovan tako da gosti mogu uživati u svom prostoru bez dijeljenja iznajmljenog dijela sa drugim gostima.</p>
+<p>Lokacija u Palama je praktična za kombinovanje planine, prirode i izleta prema Sarajevu.</p>
+<div class="checks"><div class="check">Zaseban ulaz</div><div class="check">4 spavaće sobe</div><div class="check">4 kupatila</div><div class="check">Zajednička kuhinja</div><div class="check">TV u sobama</div><div class="check">Grijanje</div></div>
 <a class="btn primary" href="#sobe">Pogledajte sobe</a></div>
 </div></section>
 
-<section id="sobe" class="cream"><div class="container"><div class="head"><div class="kicker">Smještaj</div><h2>Prostor prilagođen grupama</h2><p class="lead">Četiri sobe sa različitim rasporedima kreveta omogućavaju fleksibilan boravak porodica i većih društava.</p></div>
+<section id="sobe" class="cream"><div class="container"><div class="head"><div class="eyebrow">Smještaj</div><h2>Četiri sobe, različite potrebe.</h2><p class="lead">Izaberite sobu ili pošaljite upit za cijeli smještaj.</p></div>
 <div class="rooms">
-<article class="room"><div class="num">SOBA 01</div><h3>Do 3 osobe</h3><p>Dva odvojena kreveta uz mogućnost dodatnog ležaja, sa privatnim kupatilom.</p></article>
-<article class="room"><div class="num">SOBA 02</div><h3>Do 2 osobe</h3><p>Bračni krevet i privatno kupatilo, pogodna za parove.</p></article>
-<article class="room"><div class="num">SOBA 03</div><h3>Do 4 osobe</h3><p>Bračni krevet i dodatni prostor za odmor, sa mogućnošću boravka i spavanja do 4 osobe, uz privatno kupatilo.</p></article>
-<article class="room"><div class="num">SOBA 04</div><h3>Do 4 osobe</h3><p>Bračni krevet i ugaona garnitura, sa mogućnošću boravka i spavanja do 4 osobe, uz privatno kupatilo.</p></article>
+<article class="room"><div class="num">SOBA 01</div><h3>Do 3 osobe</h3><p>Dva odvojena kreveta uz mogućnost dodatnog ležaja i privatno kupatilo.</p><strong>Za porodicu ili prijatelje</strong></article>
+<article class="room"><div class="num">SOBA 02</div><h3>Do 2 osobe</h3><p>Bračni krevet i privatno kupatilo.</p><strong>Idealna za parove</strong></article>
+<article class="room"><div class="num">SOBA 03</div><h3>Do 4 osobe</h3><p>Bračni krevet i dodatni prostor za odmor/spavanje, uz privatno kupatilo.</p><strong>Praktična za porodice</strong></article>
+<article class="room"><div class="num">SOBA 04</div><h3>Do 4 osobe</h3><p>Bračni krevet i ugaona garnitura, uz privatno kupatilo.</p><strong>Prostranija opcija</strong></article>
 </div></div></section>
 
-<section id="galerija" class="gallery"><div class="container"><div class="head"><div class="kicker">Galerija</div><h2>Pogledajte Apartman GM</h2><p class="lead">Dodirnite fotografiju za veći prikaz.</p></div>
+<section id="galerija" class="gallery"><div class="container"><div class="head"><div class="eyebrow">Galerija</div><h2>Upoznajte prostor prije dolaska.</h2><p class="lead">Dodirnite fotografiju za veliki prikaz.</p></div>
 <div class="grid">
-<div class="photo"><img src="IMG_20260822_134132.jpg" alt="Apartman GM" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134241.jpg" alt="Apartman GM" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134314.jpg" alt="Apartman GM" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134401.jpg" alt="Enterijer" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134457.jpg" alt="Enterijer" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134532.jpg" alt="Soba" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134608.jpg" alt="Soba" loading="lazy"></div>
-<div class="photo"><img src="IMG_20260822_134650.jpg" alt="Kupatilo" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140657.jpg" alt="Enterijer" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140746.jpg" alt="Enterijer" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140807.jpg" alt="Enterijer" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140841.jpg" alt="Soba" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140913.jpg" alt="Kupatilo" loading="lazy"></div>
-<div class="photo"><img src="IMG_20250111_140940.jpg" alt="Detalj" loading="lazy"></div>
-<div class="photo"><img src="IMG_20240227_142953.jpg" alt="Apartman GM" loading="lazy"></div>
+<div class="photo"><img src="IMG_20260822_134132.jpg" alt="Apartman GM"></div>
+<div class="photo"><img src="IMG_20260822_134241.jpg" alt="Apartman GM"></div>
+<div class="photo"><img src="IMG_20260822_134314.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20260822_134401.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20260822_134457.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20260822_134532.jpg" alt="Soba"></div>
+<div class="photo"><img src="IMG_20260822_134608.jpg" alt="Soba"></div>
+<div class="photo"><img src="IMG_20260822_134650.jpg" alt="Kupatilo"></div>
+<div class="photo"><img src="IMG_20250111_140657.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20250111_140746.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20250111_140807.jpg" alt="Enterijer"></div>
+<div class="photo"><img src="IMG_20250111_140841.jpg" alt="Soba"></div>
+<div class="photo"><img src="IMG_20250111_140913.jpg" alt="Kupatilo"></div>
+<div class="photo"><img src="IMG_20250111_140940.jpg" alt="Detalj"></div>
+<div class="photo"><img src="IMG_20240227_142953.jpg" alt="Apartman GM"></div>
 </div></div></section>
 
-<section id="lokacija" class="location"><div class="container"><div class="head"><div class="kicker">Lokacija</div><h2>Pale kao baza za planinu i grad.</h2><p class="lead">Boravite u mirnijem okruženju i jednostavno planirajte izlete prema Jahorini i Sarajevu.</p></div>
+<section id="lokacija" class="location"><div class="container"><div class="head"><div class="eyebrow">Lokacija</div><h2>Pale kao baza za planinu i grad.</h2><p class="lead">Smještaj je u Palama, sa praktičnim pristupom Jahorini i Sarajevu.</p></div>
 <div class="loc-grid">
-<div class="loc-card"><div><h3>📍 Apartman GM · Pale</h3><p style="margin-top:10px;color:#d9e2da">Praktična lokacija za goste koji žele biti blizu prirode, Jahorine i Sarajeva.</p></div><a class="btn gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Apartman+GM+Pale">Otvori Google Maps</a></div>
-<div class="walk"><div class="kicker">Naša šetačka zona</div><h3>Svjež zrak i šetnja kroz prirodu.</h3><p>Za goste koji žele kratku šetnju bez odlaska autom, pripremili smo rutu kroz zelenilo i šumu – idealnu za jutarnju šetnju ili opuštanje predveče.</p><a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1CYwsG6njrvV0D2cUjREEoAZWxAx1UVE&amp;usp=sharing">Pogledaj šetačku rutu</a></div>
+<div class="loc-card"><div><h3>📍 Apartman GM · Pale</h3><p>Pribanjska 66, 71420 Pale, Bosna i Hercegovina</p><p>Mirno okruženje, pogled prema gradu i planinama i dobra polazna tačka za istraživanje kraja.</p></div><a class="btn gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Apartman%20GM%20Pale">Otvori Google Maps</a></div>
+<div class="walk"><div><h3>🥾 Naša šetačka zona</h3><p>Prirodno okruženje pogodno za laganu šetnju, svjež zrak i kratki predah od gradske gužve.</p></div><a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Apartman%20GM%20Pale">Pogledaj lokaciju</a></div>
 </div></div></section>
 
-<section id="kontakt" class="cta"><div class="container"><div class="cta-box">
-<div class="kicker">Rezervacija</div><h2>Pošaljite upit</h2><p class="lead">Unesite željeni termin, broj gostiju i poruku. Zatim izaberite gdje želite poslati upit.</p>
-<form id="bookingForm" style="margin-top:28px">
-<div class="form-grid">
-<label class="form-label">Datum prijave<input id="checkin" class="field" type="date" required></label>
-<label class="form-label">Datum odjave<input id="checkout" class="field" type="date" required></label>
-<label class="form-label">Broj gostiju<select id="guests" class="field" required><option value="">Izaberite broj</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option></select></label>
-<label class="form-label">Ime i prezime<input id="guestName" class="field" type="text" placeholder="Vaše ime"></label>
-</div>
-<label class="form-label" style="display:block;margin-top:15px">Poruka / napomena<textarea id="guestMessage" class="field" rows="4" placeholder="Npr. Dolazimo sa djecom ili imate li parking?" style="resize:vertical"></textarea></label>
-<div style="margin-top:25px"><strong>Gdje želite poslati upit?</strong>
-<div class="contact-grid">
-<div class="contact-card"><div style="font-weight:900;color:#168c45;margin-bottom:10px">WhatsApp</div><button type="button" class="btn primary" style="width:100%;margin-bottom:9px" onclick="sendWhatsApp('+38765654123')">+387 65 654 123</button><button type="button" class="btn primary" style="width:100%" onclick="sendWhatsApp('+381649758372')">+381 64 975 8372</button></div>
-<div class="contact-card"><div style="font-weight:900;color:#665cac;margin-bottom:10px">Viber</div><button type="button" class="btn" style="width:100%;margin-bottom:9px;background:#665cac;color:#fff" onclick="sendViber('+38765654123')">+387 65 654 123</button><button type="button" class="btn" style="width:100%;background:#665cac;color:#fff" onclick="sendViber('+381649758372')">+381 64 975 8372</button></div>
-</div></div>
-<p id="formStatus" style="margin-top:14px;color:#a04a2a;font-size:14px"></p>
-</form></div></div></section>
+<section id="upit" class="booking"><div class="container box"><div class="booking-grid">
+<div><div class="eyebrow">Rezervacija</div><h2>Pošaljite nam upit za svoj termin.</h2><p>Unesite datum, broj gostiju i željenu sobu. Upit ide direktno domaćinu. Termin je potvrđen tek nakon odgovora domaćina.</p><a class="btn primary" target="_blank" rel="noopener" href="https://www.booking.com/hotel/ba/privatan-smestaj-sobe.html">Pogledajte Booking.com</a></div>
+<form class="form" id="form"><div class="form-grid"><label class="label">Dolazak<input class="field" id="a" type="date" required></label><label class="label">Odlazak<input class="field" id="d" type="date" required></label></div>
+<div class="form-grid"><label class="label">Gosti<select class="field" id="g" required><option value="">Izaberite</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option></select></label>
+<label class="label">Smještaj<select class="field" id="u" required><option value="">Izaberite</option><option>Cijeli Apartman GM</option><option>Soba 01</option><option>Soba 02</option><option>Soba 03</option><option>Soba 04</option></select></label></div>
+<label class="label">Napomena<textarea class="field" id="m" placeholder="Dodatne informacije..."></textarea></label><button class="btn gold" type="submit">Pošalji upit</button><div class="note">Dugme otvara aplikaciju za e‑poštu sa pripremljenim upitom.</div></form>
+</div></div></section>
+
+<section><div class="container"><div class="head"><div class="eyebrow">Česta pitanja</div><h2>Prije dolaska</h2></div><div class="faq">
+<details><summary>Da li mogu rezervisati cijeli apartman?</summary><p>Da. Pošaljite upit za cijeli Apartman GM i navedite broj gostiju i termin.</p></details>
+<details><summary>Da li svaka soba ima privatno kupatilo?</summary><p>Da, smještajne jedinice imaju privatna kupatila.</p></details>
+<details><summary>Da li je parking obezbijeđen?</summary><p>Da, gostima je na raspolaganju privatni parking.</p></details>
+<details><summary>Da li je rezervacija preko sajta automatska?</summary><p>Ne. Sajt šalje direktan upit domaćinu, a termin se potvrđuje nakon odgovora.</p></details>
+</div></div></section>
 </main>
 
-<footer><div class="container footer"><div><strong>Apartman GM</strong><br><small>Pale · Jahorina · Sarajevo</small></div><small>Ugodan smještaj za odmor, planinu i istraživanje.</small></div></footer>
-<div class="modal" id="modal" onclick="closeModal()"><button class="close" type="button" aria-label="Zatvori">×</button><img id="modalImg" alt=""></div>
+<footer><div class="container footer"><div><strong>APARTMAN GM · PALE</strong><br><small>Odmor između Jahorine i Sarajeva.</small></div><div><a href="#upit">Pošalji upit</a><br><a href="mailto:apartman.gm@gmail.com">apartman.gm@gmail.com</a></div><div><small>© 2026 Apartman GM</small></div></div></footer>
+<div class="bottom"><a class="btn primary" href="#upit">Pošalji upit</a><a class="btn gold" target="_blank" rel="noopener" href="https://www.booking.com/hotel/ba/privatan-smestaj-sobe.html">Booking.com</a></div>
+<div class="modal" id="modal" onclick="if(event.target.id==='modal')this.classList.remove('open')"><button class="close" onclick="document.getElementById('modal').classList.remove('open')">×</button><img id="big" alt=""></div>
 
 <script>
-const modal=document.getElementById('modal');
-const modalImg=document.getElementById('modalImg');
-const formStatus=document.getElementById('formStatus');
-const checkin=document.getElementById('checkin');
-const checkout=document.getElementById('checkout');
-
-function toggleMenu(){
-  const nav=document.getElementById('mainNav');
-  const isOpen=nav.style.display==='flex';
-  nav.style.display=isOpen?'none':'flex';
-  if(!isOpen){
-    nav.style.position='absolute';
-    nav.style.top='76px';
-    nav.style.left='0';
-    nav.style.right='0';
-    nav.style.padding='20px 5%';
-    nav.style.background='#fff';
-    nav.style.flexDirection='column';
-  }
-}
-
-document.querySelectorAll('.photo img').forEach(function(image){
-  image.addEventListener('click',function(event){
-    event.stopPropagation();
-    modalImg.src=image.src;
-    modalImg.alt=image.alt;
-    modal.classList.add('open');
-  });
-});
-
-function closeModal(){modal.classList.remove('open')}
-
-document.addEventListener('keydown',function(event){
-  if(event.key==='Escape') closeModal();
-});
-
-const today=new Date().toISOString().split('T')[0];
-checkin.min=today;
-checkout.min=today;
-
-checkin.addEventListener('change',function(){
-  checkout.min=this.value || today;
-  if(checkout.value && checkout.value<=this.value) checkout.value='';
-});
-
-function buildMessage(){
-  const ci=checkin.value;
-  const co=checkout.value;
-  const g=document.getElementById('guests').value;
-  const n=document.getElementById('guestName').value.trim();
-  const m=document.getElementById('guestMessage').value.trim();
-
-  if(!ci || !co || !g){
-    formStatus.textContent='Molimo unesite datum prijave, datum odjave i broj gostiju.';
-    return null;
-  }
-
-  if(new Date(co)<=new Date(ci)){
-    formStatus.textContent='Datum odjave mora biti nakon datuma prijave.';
-    return null;
-  }
-
-  formStatus.textContent='';
-
-  const lines=[
-    'Poštovani, zainteresovan/a sam za boravak u Apartmanu GM.',
-    '',
-    '📅 Prijava: '+ci,
-    '📅 Odjava: '+co,
-    '👥 Broj gostiju: '+g
-  ];
-
-  if(n) lines.push('👤 Ime i prezime: '+n);
-  if(m) lines.push('💬 Poruka: '+m);
-
-  lines.push('', 'Molim vas za informaciju o dostupnosti i cijeni. Hvala!');
-  return lines.join('\n');
-}
-
-function sendWhatsApp(number){
-  const msg=buildMessage();
-  if(!msg) return;
-  window.location.href='https://wa.me/'+number.replace(/\D/g,'')+'?text='+encodeURIComponent(msg);
-}
-
-async function sendViber(number){
-  const msg=buildMessage();
-  if(!msg) return;
-
-  try{await navigator.clipboard.writeText(msg)}catch(e){}
-
-  const cleanNumber=number.replace(/\D/g,'');
-  window.location.href='viber://chat?number=%2B'+cleanNumber;
-
-  setTimeout(function(){
-    alert('Poruka je kopirana. Ako se Viber ne otvori direktno, otvorite Viber i zalijepite poruku u razgovor sa '+number+'.');
-  },800);
-}
+document.querySelectorAll('.photo img').forEach(x=>x.onclick=()=>{document.getElementById('big').src=x.src;document.getElementById('big').alt=x.alt;document.getElementById('modal').classList.add('open')});
+document.getElementById('form').onsubmit=e=>{e.preventDefault();let a=document.getElementById('a').value,d=document.getElementById('d').value,g=document.getElementById('g').value,u=document.getElementById('u').value,m=document.getElementById('m').value||'Nema dodatne napomene.';if(d<=a){alert('Datum odlaska mora biti nakon datuma dolaska.');return}let s=encodeURIComponent('Upit za rezervaciju — Apartman GM');let b=encodeURIComponent('Poštovani,\\n\\nŽelio/la bih poslati upit za rezervaciju.\\n\\nDolazak: '+a+'\\nOdlazak: '+d+'\\nBroj gostiju: '+g+'\\nSmještaj: '+u+'\\nNapomena: '+m+'\\n\\nMolim vas za potvrdu dostupnosti i cijene.\\n\\nHvala.');location.href='mailto:apartman.gm@gmail.com?subject='+s+'&body='+b};
 </script>
 </body>
 </html>
