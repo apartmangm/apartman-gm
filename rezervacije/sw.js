@@ -1,5 +1,6 @@
-const CACHE="gm-rezervacije-v8";
-const ASSETS=["./","./index.html","./manifest.webmanifest","./logo.svg"];
-self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
+const CACHE="gm-rezervacije-v9";
+const ASSETS=["./","./manifest.webmanifest","./logo.svg","./pricing.js"];
+const inject=async r=>{if(!r||!r.ok)return r;const ct=r.headers.get("content-type")||"";if(!ct.includes("text/html"))return r;const t=await r.text();const body=t.includes("</body>")?t.replace("</body>",'<script src="./pricing.js"></script></body>'):t+'<script src="./pricing.js"></script>';return new Response(body,{status:r.status,statusText:r.statusText,headers:r.headers});};
+self.addEventListener("install",e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(ASSETS);const r=await inject(await fetch("./index.html"));await c.put("./index.html",r);await self.skipWaiting()})()));
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)))});
+self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;if(e.request.destination==="document"){e.respondWith(fetch(e.request).then(inject).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match("./index.html"))));return}e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)))});
