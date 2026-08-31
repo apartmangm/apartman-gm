@@ -1,4 +1,4 @@
-const CACHE="gm-rezervacije-v9";
+const CACHE="gm-rezervacije-v10";
 const ASSETS=["./","./manifest.webmanifest","./logo.svg","./pricing.js"];
 const inject=async r=>{if(!r||!r.ok)return r;const ct=r.headers.get("content-type")||"";if(!ct.includes("text/html"))return r;const t=await r.text();const body=t.includes("</body>")?t.replace("</body>",'<script src="./pricing.js"></script></body>'):t+'<script src="./pricing.js"></script>';return new Response(body,{status:r.status,statusText:r.statusText,headers:r.headers});};
 self.addEventListener("install",e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(ASSETS);const r=await inject(await fetch("./index.html"));await c.put("./index.html",r);await self.skipWaiting()})()));
