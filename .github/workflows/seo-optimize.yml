@@ -1,0 +1,121 @@
+name: SEO optimization
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '.github/workflows/seo-optimize.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    if: github.event.head_commit.message != 'SEO: optimize homepage metadata and content'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Optimize homepage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          def replace_once(pattern, repl, flags=0):
+              global s
+              s = re.sub(pattern, repl, s, count=1, flags=flags)
+
+          title = 'Apartman GM Pale | Smještaj blizu Jahorine i Sarajeva'
+          desc = 'Apartman GM u Palama — privatni smještaj blizu Jahorine i Sarajeva. 4 sobe, 4 privatna kupatila, parking, Wi‑Fi i smještaj do 13 gostiju.'
+
+          replace_once(r'<title>.*?</title>', f'<title>{title}</title>', re.S)
+
+          if '<meta name="robots"' not in s:
+              s = s.replace('</head>', f'<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">\n</head>', 1)
+
+          replace_once(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{desc}">')
+
+          canonical = '<link rel="canonical" href="https://apartmangm.com/">'
+          og = '''
+          <meta property="og:type" content="website">
+          <meta property="og:locale" content="sr_Latn_BA">
+          <meta property="og:site_name" content="Apartman GM">
+          <meta property="og:title" content="Apartman GM Pale | Smještaj blizu Jahorine i Sarajeva">
+          <meta property="og:description" content="Privatni smještaj u Palama blizu Jahorine i Sarajeva — 4 sobe, 4 privatna kupatila, parking i Wi‑Fi.">
+          <meta property="og:url" content="https://apartmangm.com/">
+          <meta property="og:image" content="https://apartmangm.com/hero-apartman-gm1.jpg">
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="Apartman GM Pale | Smještaj blizu Jahorine i Sarajeva">
+          <meta name="twitter:description" content="Privatni smještaj u Palama blizu Jahorine i Sarajeva — 4 sobe, 4 privatna kupatila, parking i Wi‑Fi.">
+          <meta name="twitter:image" content="https://apartmangm.com/hero-apartman-gm1.jpg">
+          '''
+          if 'property="og:title"' not in s:
+              s = s.replace(canonical, canonical + og, 1)
+
+          schema = '''
+          <script type="application/ld+json">
+          {
+            "@context":"https://schema.org",
+            "@graph":[
+              {
+                "@type":"WebSite",
+                "@id":"https://apartmangm.com/#website",
+                "url":"https://apartmangm.com/",
+                "name":"Apartman GM",
+                "inLanguage":"sr-Latn"
+              },
+              {
+                "@type":"LodgingBusiness",
+                "@id":"https://apartmangm.com/#lodging",
+                "name":"Apartman GM",
+                "url":"https://apartmangm.com/",
+                "description":"Privatni smještaj u Palama blizu Jahorine i Sarajeva sa četiri sobe, četiri privatna kupatila, zajedničkom kuhinjom, privatnim parkingom i Wi‑Fi mrežom.",
+                "image":["https://apartmangm.com/hero-apartman-gm1.jpg"],
+                "telephone":"+38765654123",
+                "email":"apartman.gm@gmail.com",
+                "address":{"@type":"PostalAddress","streetAddress":"Pribanjska 66","addressLocality":"Pale","postalCode":"71420","addressCountry":"BA"},
+                "numberOfRooms":4,
+                "amenityFeature":[
+                  {"@type":"LocationFeatureSpecification","name":"Parking","value":true},
+                  {"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true}
+                ],
+                "availableLanguage":["sr-Latn","en"]
+              }
+            ]
+          }
+          </script>
+          '''
+          if 'https://apartmangm.com/#lodging' not in s:
+              s = s.replace('</head>', schema + '</head>', 1)
+
+          replace_once(r'<h1[^>]*data-sr="[^"]*"[^>]*>.*?</h1>', '<h1 data-sr="Apartman GM – smještaj u Palama blizu Jahorine i Sarajeva" data-en="Apartman GM – accommodation in Pale near Jahorina and Sarajevo">Apartman GM – smještaj u Palama blizu Jahorine i Sarajeva</h1>', re.S)
+
+          replace_once(r'<h2[^>]*data-sr="Jednostavno mjesto za miran boravak\."[^>]*>.*?</h2>', '<h2 data-sr="Privatan smještaj u Palama za odmor blizu Jahorine." data-en="Private accommodation in Pale for a stay near Jahorina.">Privatan smještaj u Palama za odmor blizu Jahorine.</h2>', re.S)
+
+          target = 'Pale su praktična baza za Jahorinu, Sarajevo, Ravnu planinu i okolne izlete.'
+          replacement = 'Pale su praktična baza za Jahorinu, Sarajevo, Ravnu planinu i okolne izlete. Apartman GM je namijenjen gostima koji žele kombinovati planinu, skijanje, prirodu i obilazak Sarajeva.'
+          s = s.replace(target, replacement, 1)
+
+          if 'Koliko gostiju može boraviti u Apartmanu GM?' not in s:
+              marker = '<details><summary data-sr="Da li je parking obezbijeđen?"'
+              faq = '<details><summary data-sr="Koliko gostiju može boraviti u Apartmanu GM?" data-en="How many guests can stay at Apartman GM?">Koliko gostiju može boraviti u Apartmanu GM?</summary><p data-sr="U četiri sobe moguće je organizovati smještaj do 13 gostiju, zavisno od kombinacije soba i rasporeda ležajeva." data-en="The four rooms can accommodate up to 13 guests, depending on the selected rooms and sleeping arrangement.">U četiri sobe moguće je organizovati smještaj do 13 gostiju, zavisno od kombinacije soba i rasporeda ležajeva.</p></details>'
+              s = s.replace(marker, faq + marker, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit SEO changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "SEO: optimize homepage metadata and content"
+          git push
